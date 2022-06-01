@@ -4,19 +4,17 @@ namespace Q9
 {
     class Program
     {
-        delegate int Funcd(int a, int b);
-        public static int func(int a, int b)
-        {
-            return a - b;
-        }
+        delegate void ShowMessageDelegate(string _message);
         static void Main(string[] args)
         {
-            Funcd funcd = func;
-            Console.WriteLine(funcd.Invoke(10, 5));
+            ShowMessageDelegate showMessageDelegate = delegate(string _message)
+            {
+                Console.WriteLine(_message);
+            };
+            showMessageDelegate.Invoke("Hello World!");
+            Console.Read();
         }
 
-        
-
-        
+      
     }
 }
