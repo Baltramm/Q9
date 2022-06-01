@@ -4,11 +4,19 @@ namespace Q9
 {
     class Program
     {
+        delegate int Funcd(int a, int b);
+        public static int func(int a, int b)
+        {
+            return a - b;
+        }
         static void Main(string[] args)
         {
-            Exception exception = new Exception("Собственное исключения");
-            exception.Data.Add("Дата создания исключения : ", DateTime.Now);
-            exception.HelpLink = "www.google.ru";
+            Funcd funcd = func;
+            Console.WriteLine(funcd.Invoke(10, 5));
         }
+
+        
+
+        
     }
 }
